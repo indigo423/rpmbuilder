@@ -21,7 +21,8 @@ RUN yum -y --setopt=tsflags=nodocs update && \
                    git \
                    yum-utils && \
     yum clean all && \
-    rm -rf /var/cache/yum
+    rm -rf /var/cache/yum && \
+    useradd -ms /bin/bash circleci
 
 USER circleci
 
