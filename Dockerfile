@@ -1,5 +1,7 @@
 FROM centos:centos7
 
+ARG NODE_VERSION=8.x
+
 RUN yum -y --setopt=tsflags=nodocs update && \
     yum install -y epel-release && \
     yum install -y autoconf \
@@ -22,6 +24,8 @@ RUN yum -y --setopt=tsflags=nodocs update && \
                    yum-utils && \
     yum clean all && \
     rm -rf /var/cache/yum && \
+    curl -sL https://rpm.nodesource.com/setup_${NODE_VERSION} | bash - && \
+    yum -y install nodejs && \
     useradd -ms /bin/bash circleci
 
 USER circleci
