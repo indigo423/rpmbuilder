@@ -21,6 +21,8 @@ RUN yum -y --setopt=tsflags=nodocs update && \
                    rpm-sign \
                    spectool \
                    git \
+                   zip \
+                   openssh \
                    yum-utils && \
     yum clean all && \
     rm -rf /var/cache/yum && \
